@@ -131,11 +131,11 @@ xfconf-query -c xfce4-desktop -p /windowlist-menu/show -n -t bool -s "false"
 echo ""
 read -r -p "Do you want to configure git? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
-    read -p "Enter your Git username: " git_username
+    read -p "Enter your Git name: " git_name
     read -p "Enter your Git email: " git_email
-    git config --global user.name "$git_username"
+    git config --global user.name "$git_name"
     git config --global user.email "$git_email"
-    echo "Git has been configured with the provided name '$git_username' and email '$git_email'."
+    ssh-keygen -t ed25519 -C "$git_email"
 fi
 
 echo ""
