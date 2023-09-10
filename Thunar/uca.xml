@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open Terminal Here</name>
+	<submenu></submenu>
+	<unique-id>1691688683830280-1</unique-id>
+	<command>exo-open --working-directory %f --launch TerminalEmulator</command>
+	<description>Example for a custom action</description>
+	<range></range>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon>org.gnome.Terminal.Preferences</icon>
+	<name>Run in Terminal</name>
+	<submenu></submenu>
+	<unique-id>1691753969426416-2</unique-id>
+	<command>xfce4-terminal -e %f</command>
+	<description>Run in Terminal</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>thunar</icon>
+	<name>Open thunar as root here</name>
+	<submenu></submenu>
+	<unique-id>1691754233337133-3</unique-id>
+	<command>pkexec thunar %f</command>
+	<description>Open thunar as root here</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+</actions>
