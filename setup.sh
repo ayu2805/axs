@@ -58,6 +58,7 @@ sudo ufw allow CUPS
 sudo systemctl enable sshd avahi-daemon
 sudo cp /usr/share/doc/avahi/ssh.service /etc/avahi/services/
 sudo ufw allow SSH
+pipx ensurepath
 
 echo ""
 read -r -p "Do you want to install Samba? [y/N] " response
