@@ -140,6 +140,8 @@ if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
     if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
         echo ""
 	    ssh-keygen -t ed25519 -C "$git_email"
+        echo ""
+        echo "Make changes accordingly if SSH key is generated again"
     fi
 fi
 
