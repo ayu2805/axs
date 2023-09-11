@@ -6,7 +6,7 @@
 	<submenu></submenu>
 	<unique-id>1691688683830280-1</unique-id>
 	<command>exo-open --working-directory %f --launch TerminalEmulator</command>
-	<description>Example for a custom action</description>
+	<description>Open Terminal Here</description>
 	<range></range>
 	<patterns>*</patterns>
 	<startup-notify/>

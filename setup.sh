@@ -47,7 +47,7 @@ else
 fi
 
 echo ""
-yay -Syu --needed --noconfirm - < tpkg
+sudo pacman -Syu --needed --noconfirm - < tpkg
 sudo systemctl enable --now ufw
 sudo ufw enable
 sudo systemctl enable --now cups
@@ -63,7 +63,7 @@ pipx ensurepath
 echo ""
 read -r -p "Do you want to install Samba? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
-    yay -Syu --needed --noconfirm samba
+    sudo pacman -Syu --needed --noconfirm samba
     sudo cp smb.conf /etc/samba/
     sudo systemctl enable smb nmb
     echo -e "[Share]\ncomment = Samba Share\npath = /home/"$(whoami)"/Share\nwritable = yes\nbrowsable = yes\nguest ok = no" | sudo tee -a /etc/samba/smb.conf > /dev/null
@@ -100,7 +100,7 @@ fi
 echo ""
 echo "Installing XFCE..."
 echo ""
-yay -Syu --needed --noconfirm - < xfce
+sudo pacman -Syu --needed --noconfirm - < xfce
 xfconf-query -c xsettings -p /Net/ThemeName -s "Materia-dark-compact"
 xfconf-query -c xfwm4 -p /general/theme -n -t string -s "Materia-dark-compact"
 xfconf-query -c xfwm4 -p /general/raise_with_any_button -n -t bool -s "false"
@@ -162,7 +162,7 @@ fi
 echo ""
 read -r -p "Do you want to install HPLIP(Driver for HP printers)? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
-    yay -Syu --needed --noconfirm hplip sane python-pillow rpcbind python-reportlab
+    sudo pacman -Syu --needed --noconfirm hplip sane python-pillow rpcbind python-reportlab
     hp-plugin -i
 fi
 
