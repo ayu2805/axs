@@ -100,7 +100,7 @@ fi
 echo ""
 echo "Installing XFCE..."
 echo ""
-sudo pacman -Syu --needed --noconfirm - < xfce
+sudo pacman -Syu --needed --noconfirm - < xf
 xfconf-query -c xsettings -p /Net/ThemeName -s "Materia-dark-compact"
 xfconf-query -c xfwm4 -p /general/theme -n -t string -s "Materia-dark-compact"
 xfconf-query -c xfwm4 -p /general/raise_with_any_button -n -t bool -s "false"
