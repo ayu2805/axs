@@ -58,6 +58,7 @@ sudo ufw allow CUPS
 sudo systemctl enable sshd avahi-daemon
 sudo cp /usr/share/doc/avahi/ssh.service /etc/avahi/services/
 sudo ufw allow SSH
+chsh -s /bin/fish
 pipx ensurepath
 
 echo ""
@@ -82,7 +83,7 @@ echo -e "VISUAL=nvim\nEDITOR=nvim\nQT_QPA_PLATFORMTHEME=qt6ct" | sudo tee /etc/e
 grep -qF "set number" /etc/xdg/nvim/sysinit.vim || echo "set number" | sudo tee -a /etc/xdg/nvim/sysinit.vim > /dev/null
 
 echo ""
-yay -Syu --needed --noconfirm numlockx lightdm-gtk-greeter
+sudo pacman -Syu --needed --noconfirm numlockx lightdm-gtk-greeter
 sudo systemctl enable lightdm
 sudo cp lightdm-gtk-greeter.conf /etc/lightdm
 sudo sed -i 's/^#greeter-setup-script=/greeter-setup-script=\/usr\/bin\/numlockx\ on/' /etc/lightdm/lightdm.conf
@@ -149,7 +150,7 @@ fi
 echo ""
 read -r -p "Do you want Bluetooth Service? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
-    yay -Syu --needed --noconfirm bluez bluez-utils blueman
+    sudo pacman -Syu --needed --noconfirm bluez bluez-utils blueman
     sudo systemctl enable bluetooth
 fi
 
