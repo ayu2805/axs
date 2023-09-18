@@ -59,6 +59,7 @@ sudo systemctl enable sshd avahi-daemon
 sudo cp /usr/share/doc/avahi/ssh.service /etc/avahi/services/
 sudo ufw allow SSH
 chsh -s /bin/fish
+sudo chsh -s /bin/fish
 pipx ensurepath
 
 echo ""
