@@ -61,6 +61,7 @@ sudo ufw allow SSH
 chsh -s /bin/fish
 sudo chsh -s /bin/fish
 pipx ensurepath
+sudo cp 40-libinput.conf /usr/share/X11/xorg.conf.d/
 
 echo ""
 read -r -p "Do you want to install Samba? [y/N] " response
@@ -174,8 +175,6 @@ cp -r galculator ~/.config
 cp -r Thunar ~/.config
 cp -r Kvantum ~/.config
 cp QtProject.conf ~/.config
-sudo pacman -Syu --needed --noconfirm libinput
-sudo cp 40-libinput.conf /usr/share/X11/xorg.conf.d/
 
 echo ""
 echo "You can now reboot your system "
