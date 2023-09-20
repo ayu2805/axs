@@ -81,7 +81,7 @@ fi
 sudo sed -i 's/Logo=1/Logo=0/' /etc/libreoffice/sofficerc
 
 echo -e "VISUAL=nvim\nEDITOR=nvim\nQT_QPA_PLATFORMTHEME=qt6ct" | sudo tee /etc/environment > /dev/null
-grep -qF "set number" /etc/xdg/nvim/sysinit.vim || echo "set number" | sudo tee -a /etc/xdg/nvim/sysinit.vim > /dev/null
+grep -qF "set number" /usr/share/nvim/sysinit.vim || echo "set number" | sudo tee -a /usr/share/nvim/sysinit.vim > /dev/null
 
 echo ""
 sudo pacman -Syu --needed --noconfirm numlockx lightdm-gtk-greeter
