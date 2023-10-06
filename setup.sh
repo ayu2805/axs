@@ -150,6 +150,20 @@ if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
 fi
 
 echo ""
+read -r -p "Do you want TLP and auto-cpufreq? [y/N] " response
+if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
+    sudo pacman -S tlp tlp-rdw
+    sudo systemctl enable tlp.service
+    sudo systemctl enable NetworkManager-dispatcher.service
+    sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket
+    sudo tlp start
+
+    git clone https://github.com/AdnanHodzic/auto-cpufreq.git
+    cd auto-cpufreq && sudo ./auto-cpufreq-installer
+    sudo auto-cpufreq --install
+fi
+
+echo ""
 read -r -p "Do you want Bluetooth Service? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
     sudo pacman -Syu --needed --noconfirm bluez bluez-utils blueman
@@ -157,9 +171,9 @@ if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
 fi
 
 echo ""
-read -r -p "Do you want to install VS Code(from AUR)? [y/N] " response
+read -r -p "Do you want to install VS Codium (from AUR)? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
-    yay -Syu --needed --noconfirm visual-studio-code-bin
+    yay -Syu --needed --noconfirm vscodium-bin
 fi
 
 echo ""
