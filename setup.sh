@@ -36,14 +36,14 @@ if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
 fi
 
 echo ""
-if [ "$(pactree -r yay)" ]; then
+if [ "$(pactree -r yay-bin)" ]; then
     echo "Yay is already installed"
 else
-    git clone https://aur.archlinux.org/yay.git
-    cd yay
+    git clone https://aur.archlinux.org/yay-bin.git
+    cd yay-bin
     yes | makepkg -si
     cd ..
-    rm -rf yay
+    rm -rf yay-bin
 fi
 
 echo ""
@@ -153,7 +153,7 @@ echo ""
 read -r -p "Do you want to install TLP? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
     echo ""
-    sudo pacman -Syu --needed --noconfirm tlp tlp-rdw smartmontools ethtool gnome-power-manager
+    sudo pacman -Syu --needed --noconfirm tlp tlp-rdw smartmontools ethtool xfce4-power-manager
     sudo systemctl enable tlp.service
     sudo systemctl enable NetworkManager-dispatcher.service
     sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket
