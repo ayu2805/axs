@@ -147,8 +147,10 @@ if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
     read -r -p "Do you want generate SSH keys? [y/N] " response
     if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
         echo ""
-	    ssh-keygen -C "$git_email"
-        echo ""
+	ssh-keygen -C "$git_email"
+        git config --global gpg.format ssh
+  	git config --global user.signingkey /home/$un/.ssh/id_ed25519.pub
+	echo ""
         echo "Make changes accordingly if SSH key is generated again"
     fi
 fi
