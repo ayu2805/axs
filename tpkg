@@ -2,6 +2,7 @@ accountsservice
 android-tools
 bleachbit
 cups-pdf
+dbus-python
 dosfstools
 exfatprogs
 file-roller
@@ -15,7 +16,6 @@ fuse3
 galculator
 geoclue
 git
-github-cli
 gnome-keyring
 gpart
 gparted
